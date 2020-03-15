@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "discount_rate"
+name = "pythonfinance"
 version = "0.1.0"
 description = ""
 authors = ["Lukas Kellerstein <lukas.kellerstein@gmail.com>"]

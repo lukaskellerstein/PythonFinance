@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/lukas/.cache/pypoetry/virtualenvs/interest-rate-EgPdnt7J-py3.7/bin/python",
+    "python.pythonPath": "/home/lukas/.cache/pypoetry/virtualenvs/pythonfinance-7tyepi3g-py3.7/bin/python",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true
