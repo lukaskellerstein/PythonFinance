@@ -7,6 +7,11 @@ authors = ["Lukas Kellerstein <lukas.kellerstein@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 quantlib = "^1.17"
+pyqt5 = "5.14.0"
+scipy = "^1.4.1"
+sympy = "^1.5.1"
+pandas = "^1.0.3"
+matplotlib = "^3.2.1"
 
 
 [tool.poetry.dev-dependencies]

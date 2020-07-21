@@ -13,3 +13,11 @@ pythonfinance/0_fundamentals/0_interest_rate/0_future_value/main4.py
 pythonfinance/0_fundamentals/0_interest_rate/0_future_value/main5.py
 pythonfinance/0_fundamentals/0_interest_rate/1_present_value/main0.py
 pythonfinance/0_fundamentals/1_discount_rate/main.py
+pythonfinance/1_bonds/0_discounted_cash_flow/main.py
+pythonfinance/1_bonds/1_yield_to_maturity/main.py
+pythonfinance/1_bonds/1_yield_to_maturity/main0a.py
+pythonfinance/1_bonds/1_yield_to_maturity/main0b.py
+pythonfinance/1_bonds/1_yield_to_maturity/main0c.py
+pythonfinance/1_bonds/1_yield_to_maturity/main1.py
+pythonfinance/1_bonds/_zero_coupon_bond/main.py
+pythonfinance/2_options/main.py
