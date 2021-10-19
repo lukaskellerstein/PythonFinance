@@ -55,6 +55,7 @@ bsm_process = ql.BlackScholesMertonProcess(
 # ------------------------------------------------
 # -----------------------------------------------
 # Computation - ver. 2 - Binomial-tree
+# For American Options is necessary to use Binomial-tree method
 # -----------------------------------------------
 # -----------------------------------------------
 steps = 200
@@ -96,7 +97,10 @@ print(option_theta)
 # print(option_ro)
 # print(option_thetaPerDay)
 
-print("Binomial-tree pricing engine - The theoretical price is ", american_option.NPV())
+print(
+    "Binomial-tree pricing engine - The theoretical price is ",
+    american_option.NPV(),
+)
 
 
 # end timer

@@ -2,6 +2,7 @@ import QuantLib as ql
 import datetime
 from Utils import to_date_vector, to_real_vector
 
+
 def QLOption(args):
     try:
         calcdate = args[0]
@@ -16,7 +17,7 @@ def QLOption(args):
         volMatrix = args[9]
         output = args[10]
 
-        todaysDate = ql.Date(calcdate.day,calcdate.month,calcdate.year)
+        todaysDate = ql.Date(calcdate.day, calcdate.month, calcdate.year)
         ql.Settings.instance().evaluationDate = todaysDate
         calendar = ql.TARGET()
         dayCounter = ql.ActualActual()
@@ -27,7 +28,9 @@ def QLOption(args):
         strikes = to_real_vector(strikes)
 
         # surface
-        volatilitySurface = ql.BlackVarianceSurface(todaysDate,calendar, expirations, strikes, volMatrix, dayCounter)
+        volatilitySurface = ql.BlackVarianceSurface(
+            todaysDate, calendar, expirations, strikes, volMatrix, dayCounter
+        )
         volatilitySurface.enableExtrapolation()
 
         # option parameters
@@ -39,37 +42,40 @@ def QLOption(args):
         underlying = ql.SimpleQuote(spot)
         dividendYield = ql.FlatForward(settlementDate, div, dayCounter)
 
-        process = ql.GeneralizedBlackScholesProcess(ql.QuoteHandle(underlying),
-                                            ql.YieldTermStructureHandle(dividendYield),
-                                            ql.YieldTermStructureHandle(riskFreeRate),
-                                            ql.BlackVolTermStructureHandle(volatilitySurface))
+        process = ql.GeneralizedBlackScholesProcess(
+            ql.QuoteHandle(underlying),
+            ql.YieldTermStructureHandle(dividendYield),
+            ql.YieldTermStructureHandle(riskFreeRate),
+            ql.BlackVolTermStructureHandle(volatilitySurface),
+        )
 
-        option = ql.EuropeanOption(payoff,exercise)
+        option = ql.EuropeanOption(payoff, exercise)
 
         engine = ql.AnalyticEuropeanEngine(process)
-        
+
         # method: analytic
         option.setPricingEngine(engine)
 
-        if (output == "PREMIUM"):
+        if output == "PREMIUM":
             value = option.NPV()
-        elif (output == "DELTA"):
+        elif output == "DELTA":
             value = option.delta()
-        elif (output == "GAMMA"):
+        elif output == "GAMMA":
             value = option.gamma()
-        elif (output == "DIVRHO"):
+        elif output == "DIVRHO":
             value = option.dividendRho()
-        elif (output == "RHO"):
+        elif output == "RHO":
             value = option.rho()
-        elif (output == "VEGA"):
+        elif output == "VEGA":
             value = option.vega()
-        elif (output == "THETA"):
+        elif output == "THETA":
             value = option.theta()
-        elif (output == "DPDSTRIKE"):
+        elif output == "DPDSTRIKE":
             value = option.strikeSensitivity()
-        elif (output == "THETADAY"):
+        elif output == "THETADAY":
             value = option.thetaPerDay()
 
         return value
     except Exception:
-        return float('NaN')
+        return float("NaN")
+

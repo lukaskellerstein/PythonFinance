@@ -56,7 +56,10 @@ bsm_process = ql.BlackScholesMertonProcess(
 pricing_engine = ql.AnalyticEuropeanEngine(bsm_process)
 european_option.setPricingEngine(pricing_engine)
 bs_price = european_option.NPV()
-print("AnalyticEuropeanEngine pricing engine - The theoretical price is ", bs_price)
+print(
+    "AnalyticEuropeanEngine pricing engine - The theoretical price is ",
+    bs_price,
+)
 
 
 # ------------------------------------------------
@@ -67,7 +70,10 @@ print("AnalyticEuropeanEngine pricing engine - The theoretical price is ", bs_pr
 steps = 200
 pricing_engine = ql.BinomialVanillaEngine(bsm_process, "crr", steps)
 european_option.setPricingEngine(pricing_engine)
-print("Binomial-tree pricing engine - The theoretical price is ", european_option.NPV())
+print(
+    "Binomial-tree pricing engine - The theoretical price is ",
+    european_option.NPV(),
+)
 
 
 # ------------------------------------------------
@@ -89,7 +95,9 @@ prices = [binomial_price(european_option, bsm_process, step) for step in steps]
 # PLOT
 # -----------------------------------------------
 plt.plot(steps, prices, label="Binomial Tree Price", lw=2, alpha=0.6)
-plt.plot([0, 100], [bs_price, bs_price], "r--", label="BSM Price", lw=2, alpha=0.6)
+plt.plot(
+    [0, 100], [bs_price, bs_price], "r--", label="BSM Price", lw=2, alpha=0.6
+)
 plt.xlabel("Steps")
 plt.ylabel("Price")
 plt.title("Binomial Tree Price For Varying Steps")

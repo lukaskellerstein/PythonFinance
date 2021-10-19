@@ -37,13 +37,34 @@ def ShowChart(xx, yy, zz, output, nbchart, color):
     xxlevels = np.linspace(xx.min(), xx.max(), num=3, endpoint=True)
     yylevels = np.linspace(yy.min(), yy.max(), num=3, endpoint=True)
     cset = ax.contour(
-        xx, yy, zz, zzlevels, zdir="z", offset=zz.min(), cmap=color, linestyles="dashed"
+        xx,
+        yy,
+        zz,
+        zzlevels,
+        zdir="z",
+        offset=zz.min(),
+        cmap=color,
+        linestyles="dashed",
     )
     cset = ax.contour(
-        xx, yy, zz, xxlevels, zdir="x", offset=xx.min(), cmap=color, linestyles="dashed"
+        xx,
+        yy,
+        zz,
+        xxlevels,
+        zdir="x",
+        offset=xx.min(),
+        cmap=color,
+        linestyles="dashed",
     )
     cset = ax.contour(
-        xx, yy, zz, yylevels, zdir="y", offset=yy.max(), cmap=color, linestyles="dashed"
+        xx,
+        yy,
+        zz,
+        yylevels,
+        zdir="y",
+        offset=yy.max(),
+        cmap=color,
+        linestyles="dashed",
     )
     for c in cset.collections:
         c.set_dashes([(0, (2.0, 2.0))])  # Dash contours

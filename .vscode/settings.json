@@ -1,5 +1,4 @@
 {
-    "python.pythonPath": "/home/lukas/.cache/pypoetry/virtualenvs/pythonfinance-7tyepi3g-py3.7/bin/python",
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
     "python.linting.flake8Enabled": true,
